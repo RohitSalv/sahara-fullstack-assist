@@ -1,0 +1,41 @@
+<header class="header" [class.stealth-mode]="isStealthMode">
+  <div class="header-container">
+    <div class="logo">
+      <a routerLink="/">
+        <span *ngIf="!isStealthMode">Support Connect</span>
+        <span *ngIf="isStealthMode">Weather Forecast</span>
+      </a>
+    </div>
+
+    <button class="menu-toggle" (click)="toggleMenu()" aria-label="Toggle menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <nav class="main-nav" [class.open]="isMenuOpen">
+      <ul>
+        <li><a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+          {{ isStealthMode ? 'Dashboard' : 'Home' }}
+        </a></li>
+        <li><a routerLink="/resources" routerLinkActive="active">
+          {{ isStealthMode ? 'Forecasts' : 'Resources' }}
+        </a></li>
+        <li><a routerLink="/report" routerLinkActive="active">
+          {{ isStealthMode ? 'Settings' : 'Report' }}
+        </a></li>
+        <li><a routerLink="/education" routerLinkActive="active">
+          {{ isStealthMode ? 'Maps' : 'Education' }}
+        </a></li>
+        <li><a routerLink="/support" routerLinkActive="active">
+          {{ isStealthMode ? 'Alerts' : 'Support' }}
+        </a></li>
+      </ul>
+    </nav>
+
+    <button class="stealth-toggle" (click)="toggleStealthMode()" 
+      [attr.aria-label]="isStealthMode ? 'Exit stealth mode' : 'Enter stealth mode'">
+      <span class="stealth-icon">{{ isStealthMode ? '🌈' : '🌦️' }}</span>
+    </button>
+  </div>
+</header>

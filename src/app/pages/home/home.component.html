@@ -1,0 +1,81 @@
+<div class="home-container" [class.stealth-mode]="isStealthMode">
+  <section class="hero-section">
+    <div class="hero-content">
+      <h1>{{ isStealthMode ? 'Weather Forecast App' : 'Support When You Need It Most' }}</h1>
+      <p *ngIf="!isStealthMode">
+        A safe space with resources, information, and support for those affected by domestic abuse.
+      </p>
+      <p *ngIf="isStealthMode">
+        Get accurate weather predictions and forecasts for your location.
+      </p>
+      
+      <div class="cta-buttons">
+        <a routerLink="/resources" class="btn btn-primary">
+          {{ isStealthMode ? 'View Forecast' : 'Find Help Near You' }}
+        </a>
+        <a routerLink="/education" class="btn btn-secondary">
+          {{ isStealthMode ? 'Check Alerts' : 'Learn About Abuse' }}
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="features-section">
+    <h2>{{ isStealthMode ? 'App Features' : 'How We Can Help' }}</h2>
+    
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon">{{ isStealthMode ? '🔍' : '📞' }}</div>
+        <h3>{{ isStealthMode ? 'Location Search' : 'Find Resources' }}</h3>
+        <p>
+          {{ isStealthMode ? 'Search for weather in any location worldwide.' : 'Access local helplines, shelters, and support services.' }}
+        </p>
+      </div>
+      
+      <div class="feature-card">
+        <div class="feature-icon">{{ isStealthMode ? '📊' : '📝' }}</div>
+        <h3>{{ isStealthMode ? 'Detailed Analytics' : 'Report Incidents' }}</h3>
+        <p>
+          {{ isStealthMode ? 'View detailed weather data and trends.' : 'Document incidents securely with optional media uploads.' }}
+        </p>
+      </div>
+      
+      <div class="feature-card">
+        <div class="feature-icon">{{ isStealthMode ? '📚' : '📚' }}</div>
+        <h3>{{ isStealthMode ? 'Weather Education' : 'Educational Resources' }}</h3>
+        <p>
+          {{ isStealthMode ? 'Learn about weather patterns and climate.' : 'Understanding abuse, rights, and recovery information.' }}
+        </p>
+      </div>
+      
+      <div class="feature-card">
+        <div class="feature-icon">{{ isStealthMode ? '👥' : '👥' }}</div>
+        <h3>{{ isStealthMode ? 'Community Alerts' : 'Support Network' }}</h3>
+        <p>
+          {{ isStealthMode ? 'Get alerts about severe weather events.' : 'Connect with community organizations and support groups.' }}
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="safety-section" *ngIf="!isStealthMode">
+    <div class="safety-content">
+      <h2>Your Safety Matters</h2>
+      <p>If you're in immediate danger, please call emergency services at <strong>911</strong>.</p>
+      <p>This website has a Quick Exit button that will immediately redirect you to a weather website.</p>
+      <p>You can also enable Stealth Mode to disguise this app as a weather application.</p>
+    </div>
+  </section>
+
+  <section class="forecast-section" *ngIf="isStealthMode">
+    <div class="forecast-content">
+      <h2>Today's Forecast</h2>
+      <div class="forecast-display">
+        <div class="weather-icon">🌤️</div>
+        <div class="temperature">72°F</div>
+        <div class="conditions">Partly Cloudy</div>
+      </div>
+      <p>Expect mild conditions throughout the day with a slight chance of evening showers.</p>
+    </div>
+  </section>
+</div>
