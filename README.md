@@ -56,7 +56,7 @@ Sahara/
 
 ## 🏗️ System Architecture
 
-```mermaid
+
 graph TD;
     Angular[Client (Angular)]
     SpringBoot[Spring Boot Backend]
@@ -69,7 +69,7 @@ graph TD;
     PythonChatbot --> MySQL
 ```
 
----
+
 
 ## 🚀 Getting Started
 
