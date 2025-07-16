@@ -1,0 +1,11 @@
+flask
+faiss-cpu
+sentence-transformers
+nltk
+mysql-connector-python
+openpyxl
+python-docx
+pdfplumber
+transformers
+scikit-learn
+tqdm

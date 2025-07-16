@@ -1,0 +1,45 @@
+
+> ✅ **Use this in GitHub README.md, Obsidian, Notion (with plugin), MkDocs, etc.**
+
+---
+
+## ✅ 2. **Draw.io / diagrams.net File (XML) – Editable in draw.io**
+
+Paste the following into [https://draw.io](https://draw.io):
+
+### 🧾 Draw.io Architecture XML
+```xml
+<mxfile host="app.diagrams.net">
+  <diagram name="Empower360 Architecture" id="CaycPp-BvID1DKsVdLhB">
+    <mxGraphModel dx="1152" dy="768" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="2" value="Client (Angular)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#D5E8D4;" vertex="1" parent="1">
+          <mxGeometry x="240" y="40" width="200" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="3" value="Spring Boot Backend" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DAE8FC;" vertex="1" parent="1">
+          <mxGeometry x="240" y="140" width="200" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="4" value="Python Chatbot (Flask/FastAPI)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F8CECC;" vertex="1" parent="1">
+          <mxGeometry x="240" y="240" width="200" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="5" value="MySQL Database" style="shape=cylinder;whiteSpace=wrap;html=1;fillColor=#FFF2CC;" vertex="1" parent="1">
+          <mxGeometry x="480" y="240" width="140" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="6" style="endArrow=block;html=1;" edge="1" parent="1" source="2" target="3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="7" style="endArrow=block;html=1;" edge="1" parent="1" source="3" target="4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="8" style="endArrow=block;html=1;" edge="1" parent="1" source="3" target="5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="9" style="endArrow=block;html=1;dashed=1;" edge="1" parent="1" source="4" target="5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

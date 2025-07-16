@@ -1,0 +1,538 @@
+{
+	"info": {
+		"_postman_id": "2832c780-08b9-4ba1-a4dd-fab424d94ce5",
+		"name": "DomV",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "38151439"
+	},
+	"item": [
+		{
+			"name": "Resource",
+			"item": [
+				{
+					"name": "Add Category",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Counsuling Services\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8092/resource/categories",
+							"host": [
+								"localhost"
+							],
+							"port": "8092",
+							"path": [
+								"resource",
+								"categories"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Subcategory",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Hospitals\",\r\n  \"category\": {\r\n    \"id\": 1\r\n  }\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8092/resource/subcategories",
+							"host": [
+								"localhost"
+							],
+							"port": "8092",
+							"path": [
+								"resource",
+								"subcategories"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Resource",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"title\": \"City General Hospital\",\r\n  \"description\": \"24/7 emergency care.\",\r\n  \"contactNumber\": \"+91-9876543210\",\r\n  \"address\": \"MG Road, Pune\",\r\n  \"websiteUrl\": \"http://cityhospital.com\",\r\n  \"imageUrl\": \"assets/images/hospital1.jpg\",\r\n  \"documentUrl\": \"assets/docs/cityhospital-guide.pdf\",\r\n  \"videoUrl\": \"https://www.youtube.com/embed/dQw4w9WgXcQ\",\r\n  \"subcategory\": {\r\n    \"id\": 1\r\n  }\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8092/resource/resources",
+							"host": [
+								"localhost"
+							],
+							"port": "8092",
+							"path": [
+								"resource",
+								"resources"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Categories",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8092/resource/categories",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8092",
+							"path": [
+								"resource",
+								"categories"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Subcategories",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8092/resource/categories/1/subcategories",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8092",
+							"path": [
+								"resource",
+								"categories",
+								"1",
+								"subcategories"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Resources",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8092/resource/subcategories/1/resources",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8092",
+							"path": [
+								"resource",
+								"subcategories",
+								"1",
+								"resources"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "All Subcategories",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8092/resource/all-subcategories",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8092",
+							"path": [
+								"resource",
+								"all-subcategories"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Support And Recovery",
+			"item": [
+				{
+					"name": "Add Helpline",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"National Domestic Violence Hotline\",\r\n  \"phoneNumber\": \"1-800-799-7233\",\r\n  \"hours\": \"24/7\",\r\n  \"description\": \"Advocates available to talk confidentially with anyone experiencing domestic violence.\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8092/support-recovery/helplines",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8092",
+							"path": [
+								"support-recovery",
+								"helplines"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Support Groups",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Domestic Violence Survivors\",\r\n  \"schedule\": \"Tuesdays at 7:00 PM\",\r\n  \"location\": \"Community Center, 123 Main St\",\r\n  \"onlineOption\": \"Available\",\r\n  \"description\": \"Support group for survivors focusing on healing and rebuilding.\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8092/support-recovery/support-groups",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8092",
+							"path": [
+								"support-recovery",
+								"support-groups"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Helplines",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8092/support-recovery/helplines",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8092",
+							"path": [
+								"support-recovery",
+								"helplines"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Support Groups",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Domestic Violence Survivors\",\r\n  \"schedule\": \"Tuesdays at 7:00 PM\",\r\n  \"location\": \"Community Center, 123 Main St\",\r\n  \"onlineOption\": \"Available\",\r\n  \"description\": \"Support group for survivors focusing on healing and rebuilding.\"\r\n}\r\n"
+						},
+						"url": {
+							"raw": "http://localhost:8092/support-recovery/support-groups",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8092",
+							"path": [
+								"support-recovery",
+								"support-groups"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Recovery Tool",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"title\": \"Safety Planning Guide\",\r\n  \"description\": \"Interactive tool to create a personalized safety plan.\",\r\n  \"iconUrl\": \"assets/icons/safety.png\",\r\n  \"buttonText\": \"Access Tool\",\r\n  \"link\": \"http://example.com/safety-planning\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8092/support-recovery/recovery-tools",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8092",
+							"path": [
+								"support-recovery",
+								"recovery-tools"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Recovery Tools",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8092/support-recovery/recovery-tools",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8092",
+							"path": [
+								"support-recovery",
+								"recovery-tools"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Incident",
+			"item": [
+				{
+					"name": "Add Report",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"incidentType\": \"physical\",\r\n  \"incidentDate\": \"2024-06-23\",\r\n  \"incidentLocation\": \"Mumbai\",\r\n  \"description\": \"Physical abuse incident.\",\r\n  \"contactName\": \"Aarti Sharma\",\r\n  \"contactMethod\": \"email\",\r\n  \"contactEmail\": \"aarti@example.com\",\r\n  \"contactPhone\": \"9876543210\",\r\n  \"mediaConsent\": true,\r\n  \"anonymous\": false\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8092/support-recovery/reports",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8092",
+							"path": [
+								"support-recovery",
+								"reports"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Media",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "postman-cloud:///1f05190b-f944-40b0-a713-d46066a906c1"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8092/support-recovery/reports/1/upload",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8092",
+							"path": [
+								"support-recovery",
+								"reports",
+								"1",
+								"upload"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Fetch Media",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8092/support-recovery/reports/media/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8092",
+							"path": [
+								"support-recovery",
+								"reports",
+								"media",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Reports",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8092/support-recovery/reports",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8092",
+							"path": [
+								"support-recovery",
+								"reports"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "New Folder",
+			"item": []
+		},
+		{
+			"name": "Register User",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"John Doe\",\r\n    \"mob\": \"9876543210\",\r\n    \"age\": 30,\r\n    \"gender\": \"FEMALE\",\r\n    \"role\" : \"ADMIN\",\r\n    \"trust1\": \"9123456789\",\r\n    \"trust2\": \"9234567890\",\r\n    \"password\": \"SecurePass123\",\r\n    \"maritalStatus\": \"SINGLE\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8092/user/register-user",
+					"host": [
+						"localhost"
+					],
+					"port": "8092",
+					"path": [
+						"user",
+						"register-user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login User",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"mob\": \"9876543210\",\r\n    \"password\": \"SecurePass123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8092/user/login-user",
+					"host": [
+						"localhost"
+					],
+					"port": "8092",
+					"path": [
+						"user",
+						"login-user"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

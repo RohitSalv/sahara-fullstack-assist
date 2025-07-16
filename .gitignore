@@ -1,4 +1,18 @@
-.angular
-dist
-node_modules
+# Java
+/target
+*.class
+*.jar
+
+# Angular
+node_modules/
+dist/
 .env
+
+# Python
+__pycache__/
+*.pyc
+venv/
+
+# OS
+.DS_Store
+Thumbs.db
