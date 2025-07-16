@@ -1,0 +1,9 @@
+<h2>Recovery Tools</h2>
+<div *ngFor="let t of tools" class="tool-card">
+  <img [src]="t.iconUrl" alt="{{ t.title }}" class="tool-icon" />
+  <h3>{{ t.title }}</h3>
+  <p>{{ t.description }}</p>
+  <a [href]="t.link" target="_blank">
+    <button>{{ t.buttonText }}</button>
+  </a>
+</div>

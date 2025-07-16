@@ -1,0 +1,18 @@
+<div class="chatbot-container">
+  <h2>Ask for Help or Guidance</h2>
+
+  <div class="chat-window">
+    <div *ngFor="let message of messages"
+      [ngClass]="{'user-message': message.from === 'User', 'bot-message': message.from === 'Bot'}"
+      [innerHTML]="formatMessage(message.text)">
+    </div>
+
+    <!-- Typing indicator -->
+    <div *ngIf="isLoading" class="bot-message">🤖 Typing…</div>
+  </div>
+
+  <div class="input-section">
+    <input [(ngModel)]="prompt" type="text" placeholder="Type your message..." (keyup.enter)="sendMessage()">
+    <button (click)="sendMessage()">Send</button>
+  </div>
+</div>

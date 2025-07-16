@@ -1,0 +1,30 @@
+<div class="category-container">
+  <h1>Manage Categories</h1>
+
+  <form [formGroup]="categoryForm" (ngSubmit)="addCategory()">
+    <input type="text" placeholder="Category Name" formControlName="name" />
+    <input type="text" placeholder="Description" formControlName="description" />
+    <button type="submit">{{ isEditing ? 'Update' : 'Add' }}</button>
+    <button type="button" (click)="resetForm()" *ngIf="isEditing">Cancel</button>
+  </form>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let cat of categories">
+        <td>{{ cat.name }}</td>
+        <td>{{ cat.description }}</td>
+        <td>
+          <button (click)="editCategory(cat)">Edit</button>
+          <button (click)="deleteCategory(cat.id!)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

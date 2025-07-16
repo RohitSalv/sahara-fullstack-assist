@@ -1,0 +1,20 @@
+<div class="resource-grid">
+  <div *ngFor="let res of resources" class="resource-card">
+
+    <img *ngIf="res.imageUrl" [src]="res.imageUrl" alt="{{ res.title }}" class="resource-image" />
+
+    <h2>{{ res.title }}</h2>
+    <p>{{ res.description }}</p>
+
+    <p *ngIf="res.contactNumber">📞 {{ res.contactNumber }}</p>
+    <p *ngIf="res.address">📍 {{ res.address }}</p>
+
+    <a *ngIf="res.websiteUrl" [href]="res.websiteUrl" target="_blank">🌐 Visit Website</a>
+    <a *ngIf="res.documentUrl" [href]="res.documentUrl" target="_blank">📄 Download Guide</a>
+
+    <div *ngIf="res.videoUrl" class="video-container">
+      <iframe width="300" height="200" [src]="res.videoUrl | safe" frameborder="0" allowfullscreen></iframe>
+    </div>
+
+  </div>
+</div>

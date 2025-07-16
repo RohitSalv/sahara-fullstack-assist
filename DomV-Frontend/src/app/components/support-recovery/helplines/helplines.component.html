@@ -1,0 +1,34 @@
+<div class="helplines-container">
+  <h2>📞 Emergency Helplines</h2>
+
+  <div class="helpline-controls">
+    <input type="text" [(ngModel)]="searchTerm" placeholder="Search helpline..." />
+    <select [(ngModel)]="availabilityFilter">
+      <option value="all">All</option>
+      <option value="24x7">24x7</option>
+      <option value="working">Working Hours</option>
+    </select>
+    <button (click)="toggleSort()">{{ isSorted ? 'Unsort' : 'Sort A-Z' }}</button>
+  </div>
+
+  <div *ngFor="let h of paginatedHelplines()" class="helpline-card">
+    <h3>{{ h.name }}</h3>
+    <p>
+      📱 {{ h.phoneNumber }}
+      <button class="copy-btn" (click)="copyPhone(h.phoneNumber)">Copy</button>
+    </p>
+    <p>🕒 {{ h.hours }}</p>
+    <p>{{ h.description }}</p>
+  </div>
+
+  <div *ngIf="filteredHelplines().length === 0" class="no-data">
+    <p>No helplines found.</p>
+  </div>
+
+  <!-- Pagination controls -->
+  <div *ngIf="totalPages() > 1" class="pagination">
+    <button (click)="prevPage()" [disabled]="currentPage === 1">⟨ Prev</button>
+    <span>Page {{ currentPage }} of {{ totalPages() }}</span>
+    <button (click)="nextPage()" [disabled]="currentPage === totalPages()">Next ⟩</button>
+  </div>
+</div>

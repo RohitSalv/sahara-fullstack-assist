@@ -1,0 +1,39 @@
+h2 {
+  font-size: 26px;
+  margin-bottom: 20px;
+  text-align: center;
+  color: #444;
+}
+
+.subcategory-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 18px;
+  padding: 20px;
+}
+
+.subcategory-card {
+  background: #f8f9fa;
+  padding: 20px;
+  border-radius: 12px;
+  border: 1px solid #ddd;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.subcategory-card:hover {
+  background: #fff;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+  transform: translateY(-4px);
+}
+
+.subcategory-card a {
+  text-decoration: none;
+  color: #28a745;
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.subcategory-card a:hover {
+  color: #1e7e34;
+}

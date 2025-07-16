@@ -1,0 +1,15 @@
+<div class="login-container">
+  <h2>Login</h2>
+  <form>
+    <div class="form-group">
+      <label for="mobile">Mobile Number</label>
+      <input type="tel" id="mobile" name="mobile" placeholder="Enter mobile number" [(ngModel)]="loginRequest.mob" required>
+    </div>
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input type="password" id="password" name="password" placeholder="Enter password" [(ngModel)]="loginRequest.password" required>
+    </div>
+    <button type="submit" (click)="loginUser()">Login</button>
+  </form>
+   <p class="register-link">Don't have an account? <a routerLink="/register-user">Register</a></p>
+</div>

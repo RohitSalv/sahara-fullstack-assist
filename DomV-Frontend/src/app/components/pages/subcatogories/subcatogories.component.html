@@ -1,0 +1,6 @@
+<h2>Subcategories</h2>
+<div class="subcategory-grid">
+  <div class="subcategory-card" *ngFor="let sub of subcatogories">
+    <a [routerLink]="['/subcategories', sub.id, 'resources']">{{ sub.name }}</a>
+  </div>
+</div>

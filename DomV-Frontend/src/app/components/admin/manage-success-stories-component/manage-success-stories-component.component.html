@@ -1,0 +1,26 @@
+<div class="success-stories-container">
+  <h2>Manage Success Stories</h2>
+
+  <input type="text" [(ngModel)]="searchText" placeholder="Search by title or author" class="search-bar">
+
+  <div *ngFor="let story of filteredStories()" class="story-card">
+    <h3>{{ story.title }}</h3>
+    <p><strong>By:</strong> {{ story.authorName }} | <strong>Date:</strong> {{ story.datePosted | date:'short' }}</p>
+    <p>{{ story.content }}</p>
+
+    <p *ngIf="story.link">
+      📎 <a [href]="story.link" target="_blank">View Related Article</a>
+    </p>
+
+    <div class="story-actions">
+      <button *ngIf="!story.approved" (click)="approveStory(story.id)">Approve</button>
+      <button class="reject-btn" (click)="deleteStory(story.id)">Reject</button>
+    </div>
+  </div>
+
+  <div class="pagination-controls">
+    <button (click)="prevPage()" [disabled]="currentPage === 1">Previous</button>
+    <span>Page {{ currentPage }} of {{ totalPages() }}</span>
+    <button (click)="nextPage()" [disabled]="currentPage === totalPages()">Next</button>
+  </div>
+</div>

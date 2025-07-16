@@ -1,0 +1,182 @@
+<div class="support-container" [class.stealth-mode]="isStealthMode">
+  <div class="page-header">
+    <h1>{{ isStealthMode ? 'Weather Alerts' : 'Support & Recovery' }}</h1>
+    <p *ngIf="!isStealthMode">
+      Connect with helplines, support groups, and resources to help in your recovery journey.
+    </p>
+    <p *ngIf="isStealthMode">
+      Stay informed about current weather alerts, forecasts, and emergency information.
+    </p>
+  </div>
+
+  <div class="support-tabs">
+    <div 
+      class="support-tab" 
+      [class.active]="activeTab === 'helplines'"
+      (click)="setActiveTab('helplines')"
+    >
+      {{ isStealthMode ? 'Active Alerts' : 'Helplines' }}
+    </div>
+    <div 
+      class="support-tab" 
+      [class.active]="activeTab === 'groups'"
+      (click)="setActiveTab('groups')"
+    >
+      {{ isStealthMode ? 'Regional Forecasts' : 'Support Groups' }}
+    </div>
+    <div 
+      class="support-tab" 
+      [class.active]="activeTab === 'tools'"
+      (click)="setActiveTab('tools')"
+    >
+      {{ isStealthMode ? 'Weather Tools' : 'Recovery Tools' }}
+    </div>
+  </div>
+
+  <div class="support-content">
+    <!-- Helplines / Weather Alerts Tab -->
+    <div *ngIf="activeTab === 'helplines'" class="helplines-container">
+      <div *ngIf="!isStealthMode">
+        <div class="helpline-card" *ngFor="let helpline of helplines">
+          <div class="helpline-info">
+            <h3 class="helpline-name">{{ helpline.name }}</h3>
+            <p class="helpline-phone">{{ helpline.phone }}</p>
+            <p class="helpline-hours">Hours: {{ helpline.hours }}</p>
+          </div>
+          <div class="helpline-description">
+            <p>{{ helpline.description }}</p>
+          </div>
+        </div>
+
+        <div class="helpline-note">
+          <h3>Calling for Help</h3>
+          <p>All helplines are confidential and many have options for TTY or language translation services.</p>
+          <p>If you're worried about call history, consider using a public phone or deleting the call from your phone's log afterward.</p>
+        </div>
+      </div>
+
+      <div *ngIf="isStealthMode">
+        <div class="alert-card" *ngFor="let alert of weatherAlerts">
+          <div class="alert-header">
+            <div class="alert-type">{{ alert.name }}</div>
+            <div class="alert-area">{{ alert.area }}</div>
+          </div>
+          <div class="alert-content">
+            <p class="alert-expires">Expires: {{ alert.expires }}</p>
+            <p class="alert-description">{{ alert.description }}</p>
+          </div>
+        </div>
+
+        <div class="alert-note">
+          <h3>Weather Alert Information</h3>
+          <p>Weather alerts are issued by the National Weather Service based on current conditions and forecasts.</p>
+          <p>Always follow official guidance during severe weather events and have an emergency plan ready.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Support Groups / Regional Forecasts Tab -->
+    <div *ngIf="activeTab === 'groups'" class="groups-container">
+      <div *ngIf="!isStealthMode">
+        <div class="group-card" *ngFor="let group of supportGroups">
+          <h3 class="group-name">{{ group.name }}</h3>
+          <p class="group-description">{{ group.description }}</p>
+          <div class="group-details">
+            <p><strong>Schedule:</strong> {{ group.schedule }}</p>
+            <p><strong>Location:</strong> {{ group.location }}</p>
+            <p *ngIf="group.online"><strong>Online Option:</strong> Available</p>
+            <p *ngIf="!group.online"><strong>Online Option:</strong> Not available</p>
+          </div>
+          <button class="group-join-btn">More Information</button>
+        </div>
+
+        <div class="group-info">
+          <h3>About Support Groups</h3>
+          <p>Support groups provide a safe space to share experiences and receive peer support from others who understand what you're going through.</p>
+          <p>All groups listed are facilitated by trained professionals and maintain strict confidentiality policies.</p>
+        </div>
+      </div>
+
+      <div *ngIf="isStealthMode">
+        <div class="forecast-card" *ngFor="let group of supportGroups">
+          <h3 class="region-name">{{ 
+            group.name === 'Domestic Violence Survivors' ? 'Northeast Region' :
+            group.name === 'Healing Through Art' ? 'Southeast Region' :
+            group.name === 'Parents Support Circle' ? 'Midwest Region' :
+            'Western Region'
+          }}</h3>
+          <p class="forecast-description">{{ 
+            group.name === 'Domestic Violence Survivors' ? 'Partly cloudy with scattered showers developing in the afternoon.' :
+            group.name === 'Healing Through Art' ? 'Humid with thunderstorms likely, some potentially severe.' :
+            group.name === 'Parents Support Circle' ? 'Clear and dry conditions with temperatures slightly above normal.' :
+            'Hot and dry with elevated fire danger in mountainous areas.'
+          }}</p>
+          <div class="forecast-details">
+            <p><strong>Updated:</strong> {{ group.schedule }}</p>
+            <p><strong>Coverage:</strong> {{ group.location }}</p>
+            <p *ngIf="group.online"><strong>Radar Available:</strong> Yes</p>
+            <p *ngIf="!group.online"><strong>Radar Available:</strong> No</p>
+          </div>
+          <button class="forecast-btn">Detailed Forecast</button>
+        </div>
+
+        <div class="forecast-info">
+          <h3>About Regional Forecasts</h3>
+          <p>Regional forecasts provide general weather trends and conditions for large geographical areas.</p>
+          <p>For more specific forecasts, please check your local weather conditions.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Recovery Tools / Weather Tools Tab -->
+    <div *ngIf="activeTab === 'tools'" class="tools-container">
+      <div class="tools-grid">
+        <div class="tool-card" *ngFor="let tool of recoveryTools">
+          <div class="tool-icon">{{ tool.icon }}</div>
+          <h3 class="tool-title">{{ 
+            !isStealthMode ? tool.title : 
+            tool.title === 'Safety Planning Guide' ? 'Weather Radar Map' :
+            tool.title === 'Mindfulness Exercises' ? 'Precipitation Forecast' :
+            tool.title === 'Healing Journal Prompts' ? 'Temperature Trends' :
+            'Storm Tracking System'
+          }}</h3>
+          <p class="tool-description">{{ 
+            !isStealthMode ? tool.description : 
+            tool.title === 'Safety Planning Guide' ? 'Interactive radar map showing precipitation, storm cells, and movement patterns.' :
+            tool.title === 'Mindfulness Exercises' ? 'Hour-by-hour precipitation forecasts for your selected location.' :
+            tool.title === 'Healing Journal Prompts' ? 'View temperature trends and patterns over the next 10 days.' :
+            'Real-time tracking of severe weather systems and projected paths.'
+          }}</p>
+          <button class="tool-access-btn">Access Tool</button>
+        </div>
+      </div>
+
+      <div class="tools-note">
+        <h3>{{ isStealthMode ? 'About Weather Tools' : 'About Recovery Tools' }}</h3>
+        <p *ngIf="!isStealthMode">
+          These tools are designed to support your healing journey and help rebuild safety and wellbeing.
+        </p>
+        <p *ngIf="isStealthMode">
+          These tools provide detailed weather data to help you stay informed about current and future conditions.
+        </p>
+        <p>
+          {{ isStealthMode ? 'Tools are updated regularly with the latest meteorological data.' : 'All tools can be used anonymously and no personal information is stored.' }}
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="community-section" *ngIf="!isStealthMode">
+    <h2>Community Support</h2>
+    <p>Connecting with others who understand your experiences can be a powerful part of healing.</p>
+    <p>Remember that recovery is not linear, and it's okay to seek help whenever you need it.</p>
+    <button class="community-btn">Find Local Community Resources</button>
+  </div>
+
+  <div class="community-section" *ngIf="isStealthMode">
+    <h2>Weather Community</h2>
+    <p>Join our community of weather enthusiasts to share observations and learn from others.</p>
+    <p>Local weather spotters play a crucial role in early identification of severe weather.</p>
+    <button class="community-btn">Join Weather Spotters Network</button>
+  </div>
+</div>

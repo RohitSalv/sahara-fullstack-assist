@@ -1,0 +1,49 @@
+<div class="manage-reports-container">
+  <h2>Incident Reports</h2>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Date</th>
+        <th>Location</th>
+        <th>Description</th>
+        <th>Contact</th>
+        <th>Media</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let report of reports">
+        <td>{{ report.incidentType }}</td>
+        <td>{{ report.incidentDate }}</td>
+        <td>{{ report.incidentLocation }}</td>
+        <td>{{ report.description }}</td>
+        <td>
+          <div *ngIf="!report.anonymous">
+            {{ report.contactName }}<br>
+            📧 {{ report.contactEmail }}<br>
+            📞 {{ report.contactPhone }}
+          </div>
+          <span *ngIf="report.anonymous">Anonymous</span>
+        </td>
+
+        <!-- Media preview -->
+        <td>
+          <div class="media-gallery">
+  <div class="media-item" *ngFor="let media of report.mediaFiles">
+    <img [src]="getMediaUrl(media.id)" alt="{{ media.fileName }}">
+  </div>
+</div>
+
+          <div *ngIf="report.mediaFiles.length === 0">No files</div>
+        </td>
+
+        <td>
+          <button (click)="deleteReport(report.id)">🗑️ Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

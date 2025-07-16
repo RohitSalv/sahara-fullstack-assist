@@ -1,0 +1,28 @@
+<div class="manage-users-container">
+  <h2>User Management</h2>
+
+  <div *ngIf="users.length === 0">No users available.</div>
+
+  <div class="user-card" *ngFor="let user of paginatedUsers">
+    <h3>{{ user.name }} ({{ user.role }})</h3>
+    <p>📱 Mobile: {{ user.mob }}</p>
+    <p>🎂 Age: {{ user.age }}</p>
+    <p>⚥ Gender: {{ user.gender }}</p>
+    <p>📞 Trusted Contact 1: {{ user.trust1 }}</p>
+    <p>📞 Trusted Contact 2: {{ user.trust2 }}</p>
+    <p>💍 Marital Status: {{ user.maritalStatus }}</p>
+
+    <button class="delete-btn" (click)="deleteUser(user.mob)">Delete User</button>
+  </div>
+
+  <!-- Pagination Controls -->
+  <div class="pagination" *ngIf="totalPages.length > 1">
+    <button
+      *ngFor="let page of totalPages"
+      (click)="changePage(page)"
+      [class.active]="currentPage === page"
+    >
+      {{ page }}
+    </button>
+  </div>
+</div>

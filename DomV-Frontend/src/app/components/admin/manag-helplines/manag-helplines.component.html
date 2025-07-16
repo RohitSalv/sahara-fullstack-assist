@@ -1,0 +1,25 @@
+<div class="manage-helplines-container">
+  <h2>Manage Helplines</h2>
+
+  <div *ngIf="paginatedHelplines.length === 0">No helplines available.</div>
+
+  <div class="helpline-card" *ngFor="let h of paginatedHelplines">
+    <h3>{{ h.name }}</h3>
+    <p>📞 {{ h.phoneNumber }}</p>
+    <p>🕒 {{ h.hours }}</p>
+    <p>{{ h.description }}</p>
+
+    <button class="delete-btn" (click)="deleteHelpline(h.id)">Delete</button>
+  </div>
+
+  <!-- Pagination Controls -->
+  <div class="pagination" *ngIf="totalPages.length > 1">
+    <button
+      *ngFor="let page of totalPages"
+      (click)="changePage(page)"
+      [class.active]="currentPage === page"
+    >
+      {{ page }}
+    </button>
+  </div>
+</div>

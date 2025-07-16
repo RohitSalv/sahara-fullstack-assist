@@ -1,0 +1,29 @@
+<div class="add-story-container" [class.stealth-mode]="isStealthMode">
+  <h2>{{ isStealthMode ? 'Weather Observation Log' : 'Share Your Story' }}</h2>
+
+  <form [formGroup]="storyForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label>Title</label>
+      <input type="text" formControlName="title">
+    </div>
+
+    <div class="form-group">
+      <label>Your Name</label>
+      <input type="text" formControlName="authorName">
+    </div>
+
+    <div class="form-group">
+      <label>Content</label>
+      <textarea formControlName="content" rows="5"></textarea>
+    </div>
+
+    <div class="form-group">
+      <label>Optional News/Article Link</label>
+      <input type="url" formControlName="link">
+    </div>
+
+    <button type="submit" [disabled]="storyForm.invalid" class="btn-submit">
+      {{ isStealthMode ? 'Log Entry' : 'Submit Story' }}
+    </button>
+  </form>
+</div>

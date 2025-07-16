@@ -1,0 +1,28 @@
+<h2>Manage Subcategories</h2>
+
+<form [formGroup]="subcategoryForm" (ngSubmit)="onSubmit()">
+  <input formControlName="name" placeholder="Name">
+  <input formControlName="description" placeholder="Description">
+  <input formControlName="categoryId" type="number" placeholder="Category ID">
+  
+  <button type="submit">{{ editingId ? 'Update' : 'Add' }}</button>
+  <button type="button" (click)="cancelEdit()" *ngIf="editingId">Cancel</button>
+</form>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+    <th>Category</th>
+    <th>Actions</th>
+  </tr>
+  <tr *ngFor="let sub of subcategories">
+    <td>{{ sub.name }}</td>
+    <td>{{ sub.description }}</td>
+    <td>{{ sub.category?.name || 'Unknown' }}</td>
+    <td>
+      <button (click)="editSubcategory(sub)">Edit</button>
+      <button (click)="deleteSubcategory(sub.id!)">Delete</button>
+    </td>
+  </tr>
+</table>

@@ -1,0 +1,49 @@
+.add-story-container {
+  padding: 32px;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.add-story-container h2 {
+  margin-bottom: 24px;
+  color: #4A90E2;
+}
+
+.stealth-mode h2 {
+  color: #42B883;
+}
+
+.form-group {
+  margin-bottom: 16px;
+}
+
+.form-group label {
+  font-weight: 600;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.btn-submit {
+  background-color: #4A90E2;
+  color: white;
+  border: none;
+  padding: 14px 24px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.stealth-mode .btn-submit {
+  background-color: #42B883;
+}
+
+.btn-submit:hover {
+  opacity: 0.9;
+}

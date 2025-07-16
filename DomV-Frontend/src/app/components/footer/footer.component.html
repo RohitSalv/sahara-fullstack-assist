@@ -1,0 +1,34 @@
+<footer class="footer" [class.stealth-mode]="isStealthMode">
+  <div class="footer-container">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>{{ isStealthMode ? 'App Info' : 'Emergency Contact' }}</h3>
+        <p *ngIf="!isStealthMode">National Helpline: <strong>1-800-799-SAFE (7233)</strong></p>
+        <p *ngIf="isStealthMode">Weather data powered by MeteoAPI</p>
+      </div>
+      
+      <div class="footer-section">
+        <h3>{{ isStealthMode ? 'Privacy' : 'Safety Tips' }}</h3>
+        <ul>
+          <li *ngIf="!isStealthMode">Clear browser history after use</li>
+          <li *ngIf="!isStealthMode">Use incognito/private browsing</li>
+          <li *ngIf="isStealthMode">Location data is used for forecasts</li>
+          <li *ngIf="isStealthMode">We respect your privacy</li>
+        </ul>
+      </div>
+      
+      <div class="footer-section">
+        <h3>{{ isStealthMode ? 'Legal' : 'Quick Links' }}</h3>
+        <ul>
+          <li>Terms of Use</li>
+          <li>Privacy Policy</li>
+          <li>{{ isStealthMode ? 'Data Sources' : 'Safety Plan' }}</li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="footer-copyright">
+      <p>&copy; {{ currentYear }} {{ isStealthMode ? 'Weather Systems Inc.' : 'Support Connect' }}. All rights reserved.</p>
+    </div>
+  </div>
+</footer>

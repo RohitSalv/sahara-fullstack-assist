@@ -1,0 +1,8 @@
+<h2>Support Groups</h2>
+<div *ngFor="let g of groups" class="group-card">
+  <h3>{{ g.name }}</h3>
+  <p>🕒 {{ g.schedule }}</p>
+  <p>📍 {{ g.location }}</p>
+  <p>Online: {{ g.onlineOption }}</p>
+  <p>{{ g.description }}</p>
+</div>

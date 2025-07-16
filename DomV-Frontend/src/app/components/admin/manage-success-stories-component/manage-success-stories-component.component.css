@@ -1,0 +1,44 @@
+.success-stories-container {
+  padding: 32px;
+}
+
+.search-bar {
+  padding: 12px;
+  border-radius: 8px;
+  width: 300px;
+  margin-bottom: 24px;
+}
+
+.story-card {
+  background: #fff;
+  padding: 24px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  margin-bottom: 24px;
+}
+
+.story-card h3 {
+  margin-top: 0;
+}
+
+.story-actions button {
+  margin-right: 12px;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  border: none;
+  color: #fff;
+  background-color: #4A90E2;
+}
+
+.story-actions .reject-btn {
+  background-color: #d9534f;
+}
+
+.pagination-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  margin-top: 24px;
+}
